@@ -39,3 +39,9 @@ SELECT `id`, `name`, `surname`
 FROM `students`
 WHERE `date_of_birth` < "1994-01-01";
 ```
+
+```sql
+SELECT `id`, `name`, `surname`
+FROM `students`
+WHERE YEAR(`date_of_birth`) < "1995";
+```
