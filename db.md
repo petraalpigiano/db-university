@@ -12,13 +12,13 @@ Quanti sono gli insegnanti che non hanno un numero di telefono? (50) -->
 Selezionare tutti gli studenti nati nel 1990 (160)
 
 ```sql
-SELECT `date_of_birth`
+SELECT `name`, `surname`, `date_of_birth`
 FROM `students`
 WHERE `date_of_birth` BETWEEN "1990-01-01" AND "1990-12-31"
 ```
 
 ```sql
-SELECT `date_of_birth`
+SELECT `name`, `surname`,`date_of_birth`
 FROM `students`
 WHERE `date_of_birth` >= "1990-01-01"
 AND `date_of_birth` <= "1990-12-31";
@@ -44,4 +44,14 @@ WHERE `date_of_birth` < "1994-01-01";
 SELECT `id`, `name`, `surname`
 FROM `students`
 WHERE YEAR(`date_of_birth`) < "1995";
+```
+
+Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
+laurea (286)
+
+```sql
+SELECT *
+FROM `courses`
+WHERE `period` = "I semestre"
+AND `year` = "1";
 ```
