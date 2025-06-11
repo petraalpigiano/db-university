@@ -12,5 +12,14 @@ Quanti sono gli insegnanti che non hanno un numero di telefono? (50) -->
 Selezionare tutti gli studenti nati nel 1990 (160)
 
 ```sql
-SELECT
+SELECT `date_of_birth`
+FROM `students`
+WHERE `date_of_birth` BETWEEN "1990-01-01" AND "1990-12-31"
+```
+
+```sql
+SELECT `date_of_birth`
+FROM `students`
+WHERE `date_of_birth` >= "1990-01-01"
+AND `date_of_birth` <= "1990-12-31";
 ```
