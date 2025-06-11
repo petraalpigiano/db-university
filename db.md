@@ -31,3 +31,11 @@ SELECT `id`, `cfu`
 FROM `courses`
 WHERE `cfu` > "10";
 ```
+
+Selezionare tutti gli studenti che hanno più di 30 anni
+
+```sql
+SELECT `id`, `name`, `surname`
+FROM `students`
+WHERE `date_of_birth` < "1994-01-01";
+```
