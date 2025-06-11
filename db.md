@@ -97,7 +97,13 @@ Contare quanti corsi di laurea ci sono per ogni dipartimento -->
 Contare quanti iscritti ci sono stati ogni anno
 
 ```sql
-
+SELECT COUNT(`id`), `enrolment_date`
+FROM `students`
+WHERE YEAR(`enrolment_date`) =  "2018"
+#OR YEAR(`enrolment_date`) =  "2019"
+#AND YEAR(`enrolment_date`) =  "2020"
+#AND YEAR(`enrolment_date`) =  "2021"
+GROUP BY `enrolment_date`;
 ```
 
 Contare gli insegnanti che hanno l'ufficio nello stesso edificio
@@ -105,5 +111,14 @@ Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 ```sql
 SELECT COUNT(`id`), `office_address`
 FROM `teachers`
-GROUP BY `office_address`
+GROUP BY `office_address`;
+```
+
+Calcolare la media dei voti di ogni appello d'esame
+
+```sql
+SELECT `exam_id`, AVG(`vote`)
+FROM `exam_student`
+WHERE `exam_id` BETWEEN "1" AND "131"
+GROUP BY `exam_id`;
 ```
