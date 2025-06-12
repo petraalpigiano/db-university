@@ -91,3 +91,25 @@ INNER JOIN  `departments`
 ON `degrees`.`department_id`= `departments`.`id`
 ORDER BY `student_name`, `student_surname`;
 ```
+
+Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
+```sql
+SELECT
+`degrees`. *,
+
+`courses`.id "course_id",
+`courses`.name "course_name",
+
+`teachers`.id "teacher_id",
+`teachers`.name "teacher_name",
+`teachers`.surname "teacher_surname"
+
+FROM `degrees`
+INNER JOIN `courses`
+ON `degrees`.`id` = `courses`.`degree_id`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `course_teacher`.teacher_id = `teachers`.id;
+```
