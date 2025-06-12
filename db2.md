@@ -11,3 +11,20 @@ Matematica (54)
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
 per ogni esame, stampando anche il voto massimo. Successivamente,
 filtrare i tentativi con voto minimo 18. -->
+
+Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+```sql
+SELECT
+`students`.`id` "student_id",
+`students`.`degree_id`,
+`students`.`name`,
+`students`.`surname`,
+
+`degrees`.`name` AS "degree_name",
+`degrees`.`level`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = "Corso di Laurea in Economia"
+```
