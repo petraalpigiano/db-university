@@ -26,5 +26,24 @@ SELECT
 FROM `students`
 INNER JOIN `degrees`
 ON `students`.`degree_id` = `degrees`.`id`
-WHERE `degrees`.`name` = "Corso di Laurea in Economia"
+WHERE `degrees`.`name` = "Corso di Laurea in Economia";
+```
+
+Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di
+Neuroscienze
+
+```sql
+SELECT
+`degrees`.`id`"degree_id",
+`degrees`.`department_id`,
+`degrees`.`name`"degree_name",
+`degrees`.`level`,
+
+`departments`.`name`"department_name"
+
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `degrees`.`level` = "magistrale"
+AND `departments`.`name` = "Dipartimento di Neuroscienze";
 ```
