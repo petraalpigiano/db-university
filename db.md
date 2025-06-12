@@ -29,7 +29,7 @@ Selezionare tutti i corsi che valgono più di 10 crediti (479)
 ```sql
 SELECT `id`, `cfu`
 FROM `courses`
-WHERE `cfu` > "10";
+WHERE `cfu` > 10;
 ```
 
 Selezionare tutti gli studenti che hanno più di 30 anni
@@ -43,7 +43,13 @@ WHERE `date_of_birth` < "1994-01-01";
 ```sql
 SELECT `id`, `name`, `surname`
 FROM `students`
-WHERE YEAR(`date_of_birth`) < "1995";
+WHERE DATE_SUB(NOW(), INTERVAL 31 YEAR) > `date_of_birth`
+```
+
+```sql
+SELECT `id`, `name`, `surname`
+FROM `students`
+WHERE YEAR(`date_of_birth`) < 1995;
 ```
 
 Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
@@ -97,7 +103,9 @@ Contare quanti corsi di laurea ci sono per ogni dipartimento -->
 Contare quanti iscritti ci sono stati ogni anno
 
 ```sql
-
+SELECT COUNT(`id`), YEAR(`enrolment_date`)
+FROM `students`
+GROUP BY YEAR (`enrolment_date`);
 ```
 
 Contare gli insegnanti che hanno l'ufficio nello stesso edificio
