@@ -113,3 +113,26 @@ ON `courses`.`id` = `course_teacher`.`course_id`
 INNER JOIN `teachers`
 ON `course_teacher`.teacher_id = `teachers`.id;
 ```
+
+Selezionare tutti i docenti che insegnano nel Dipartimento di
+Matematica (54)
+
+```sql
+SELECT DISTINCT
+`teachers`.id "teacher_id",
+`teachers`.`name` "teacher_name",
+`teachers`.surname "teacher_surname"
+
+FROM `teachers`
+INNER JOIN `course_teacher`
+ON `teachers`.id = `course_teacher`.teacher_id
+INNER JOIN `courses`
+ON `courses`.id = `course_teacher`.course_id
+INNER JOIN `degrees`
+ON `courses`.degree_id = `degrees`.id
+INNER JOIN `departments`
+ON `degrees`.department_id = `departments`.id
+WHERE `departments`.`name` = "Dipartimento di Matematica"
+#GROUP BY `teachers`.id, `teachers`.`name` ,`teachers`.surname
+ORDER BY `teachers`.`id`
+```
